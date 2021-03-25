@@ -1,0 +1,52 @@
+<form id="form" [formGroup]="form">
+    <div id="header">
+        <h3>Sign into your account</h3>
+    </div>
+    <div id="body">
+        <div class="input-group form-group invalid-input" style="margin-bottom: 0px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="username" formControlName="username">
+        </div>
+        <small [ngClass]="[states.username.class]" style="display: block; width:100%; margin-bottom: 16px;">{{states.username.message}}</small>
+
+        <div formGroupName="passwordGroup">
+
+            <div class="input-group form-group invalid-input" style="margin-bottom: 0px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="password" formControlName="password">
+            </div>
+            <small [ngClass]="[states.password.class]" style="display: block; width:100%; margin-bottom: 16px;">{{states.password.message}}</small>
+
+
+            <div class="input-group form-group" *ngIf="signUp" [ngClass]="[states.confirm.class]" style="margin-bottom: 0px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="confirm password" formControlName="confirm">
+            </div>
+            <small *ngIf="signUp && states.passwordGroup.class !== ''" [ngClass]="[states.passwordGroup.class]" style="display: block; width:100%; margin-bottom: 16px;">{{states.passwordGroup.message}}</small>
+
+        </div>
+
+        <div class="form-group">
+            <button (click)="onAutoComplete()" class="btn float-left btn-primary" *ngIf="!signUp" style="margin-top: 15px;">Auto Complete</button>
+
+            <input type="submit" value="Sign in" class="btn float-right login_btn" *ngIf="!signUp" (click)="onSignIn()">
+
+            <input type="submit" value="Sign up" class="btn float-right login_btn" *ngIf="signUp" (click)="onSignUp()">
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-center links" *ngIf="!signUp">
+            Don't have an account?<span (click)="onSwitchForm()">Sign Up</span>
+        </div>
+        <div class="d-flex justify-content-center links" *ngIf="signUp">
+            Already signed in?<span (click)="onSwitchForm()">Sign In</span>
+        </div>
+    </div>
+
+</form>
