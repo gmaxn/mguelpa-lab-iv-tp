@@ -32,15 +32,12 @@
 
         </div>
 
-        <!-- <div class="row align-items-center remember">
-            <input type="checkbox">Remember Me
-        </div> -->
-
         <div class="form-group">
-            <input type="submit" value="Sign in" class="btn float-right login_btn" *ngIf="!signUp"
-            (click)="onSignIn()">
-            <input type="submit" value="Sign up" class="btn float-right login_btn" *ngIf="signUp"
-                (click)="onSignUp()">
+            <button (click)="onAutoComplete()" class="btn float-left btn-primary" *ngIf="!signUp" style="margin-top: 15px;">Auto Complete</button>
+
+            <input type="submit" value="Sign in" class="btn float-right login_btn" *ngIf="!signUp" (click)="onSignIn()">
+
+            <input type="submit" value="Sign up" class="btn float-right login_btn" *ngIf="signUp" (click)="onSignUp()">
         </div>
     </div>
     <div class="card-footer">
@@ -50,9 +47,6 @@
         <div class="d-flex justify-content-center links" *ngIf="signUp">
             Already signed in?<span (click)="onSwitchForm()">Sign In</span>
         </div>
-        <!-- <div class="d-flex justify-content-center">
-            <a href="#">Forgot your password?</a>
-        </div> -->
     </div>
 
 </form>

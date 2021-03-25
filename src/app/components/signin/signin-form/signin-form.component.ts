@@ -153,4 +153,9 @@ export class SigninFormComponent implements OnInit {
     });
     return !hasErrors;
   }
+
+  onAutoComplete() {
+    this.form.get('username')?.patchValue("test@user.com");
+    this.form.get('passwordGroup.password')?.patchValue("123456q!");
+  }
 }
