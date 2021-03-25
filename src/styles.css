@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  /* padding: 1px; */
+  /* border: 1px solid grey;
+  border-style: dashed; */
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+article, aside, figcaption, figure, footer, 
+header, hgroup, main, nav, section {
+  display: block;
+}
+
+app-root {
+  /* border: 1px solid red;
+  border-style: dashed; */
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-template-rows: 60px auto;
+  height: 100%;
+  /* padding: 1px; */
+}
+
+app-top-nav {
+  /* border: 1px solid black;
+  border-style: dashed; */
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+app-side-nav {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  z-index: 1;
+}
+
+app-spinner {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+router-outlet,
+app-home,
+app-signin,
+app-denied,
+app-not-found
+app-actor-new,
+app-actor-manage,
+app-movie-manage
+{
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  height: 100%;
+}

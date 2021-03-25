@@ -1,0 +1,21 @@
+:host {
+    display: inline;
+    text-align: center;
+}
+p {
+    text-align: center;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: x-large;
+    margin-top: 10px;
+}
+#gif-wrapper{
+    display: block;
+    flex-direction: column;
+    width:100%;
+}
+#gif-wrapper>img{
+    margin-bottom:5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}

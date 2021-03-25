@@ -1,0 +1,11 @@
+:host {
+    display: inline;
+    text-align: center;
+}
+p {
+    text-align: center;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: x-large;
+    margin-top: 10px;
+}
