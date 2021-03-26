@@ -68,7 +68,6 @@ export class SigninFormComponent implements OnInit {
   }
 
   parseForm(): User {
-    console.log(this.form.get('username'));
     return new User(
       this.form.get('uid')?.value,
       this.form.get('firstname')?.value,
@@ -123,12 +122,12 @@ export class SigninFormComponent implements OnInit {
   }
 
   onSignUp() {
-    this._loading.emitChange(true);
-    localStorage.removeItem('user');
-
-    const user = this.parseForm();
-
     if (this.validateForm(...this.controlNames)) {
+
+      localStorage.removeItem('user');
+      const user = this.parseForm();
+      this._loading.emitChange(true);
+      
       this.auth.signUp(user).then(
         (ok) => {
           this.router.navigate(['home']);
