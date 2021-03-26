@@ -1,19 +1,23 @@
 :host {
-    display: inline;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
+
 p {
     text-align: center;
     font-family: Consolas, 'Courier New', Courier, monospace;
     font-weight: bolder;
     font-size: x-large;
-    margin-top: 10px;
+    margin-top: 25px;
 }
+
 #gif-wrapper{
-    display: block;
+    display: flex;
     flex-direction: column;
-    width:100%;
+    margin: 25px auto 0 auto;
 }
+
 #gif-wrapper>img{
     margin-bottom:5px;
     border-radius: 5px;

@@ -1,11 +1,13 @@
 :host {
-    display: inline;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
+
 p {
     text-align: center;
     font-family: Consolas, 'Courier New', Courier, monospace;
     font-weight: bolder;
     font-size: x-large;
-    margin-top: 10px;
+    margin-top: 25px;
 }

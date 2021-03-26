@@ -59,16 +59,17 @@ app-spinner {
   z-index: 10;
 }
 
-router-outlet,
+
 app-home,
 app-signin,
 app-denied,
 app-not-found
 app-actor-new,
 app-actor-manage,
-app-movie-manage
-{
+app-movie-manage,
+app-about-me {
   grid-column: 1 / span 2;
   grid-row: 2;
   height: 100%;
+  /* border: 1px solid orange; */
 }

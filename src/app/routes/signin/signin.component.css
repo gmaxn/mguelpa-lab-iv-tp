@@ -9,6 +9,12 @@
     :host { background: url('./../../../assets/home-theater-2.png'); }
 }
 
+.route-container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
 app-signin-form {
     grid-column: 2;
     grid-row: 2;
