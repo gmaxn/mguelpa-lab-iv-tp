@@ -1,3 +1,4 @@
+
 :host {
     display: flex;
     height: 100%;
@@ -10,14 +11,15 @@
 }
 
 h4 {
-    font-size: large;
-    font-weight: bolder;
-    color:whitesmoke
+    font-family: "Permanent Marker", cursive;
+    font-size: 24px;
+    color: rgb(229, 229, 16);
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 p {
-    font-family: Consoleas 'Courier New', Courier, monospace;
-    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
 }
 
 .profile-head {
