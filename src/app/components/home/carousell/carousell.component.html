@@ -1,0 +1,14 @@
+<div id="btn-left" class="btn_shift btn btn_shift" (click)="onShiftLeft()"><i class="fas fa-chevron-left"></i></div>
+<div id="card-display">
+    <div id="card-container" [@shift]="direction">
+        <div class="game_card" style="width:200px" *ngFor="let item of pagination">
+            <img src="{{item.imageUrl}}" alt="image">
+            <div class="card-body" style="height:100%">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">{{item.description}}</p>
+                <a routerLink="/{{item.url}}" class="btn btn-primary">Jugar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="btn-right" class="btn_shift btn btn_shift" (click)="onShiftRight()"><i class="fas fa-chevron-right"></i></div>

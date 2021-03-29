@@ -1,13 +1,30 @@
 :host {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 10% 60% 30%;
+    background-color: #333333;
     height: 100%;
+}
+
+app-carousell {
+    grid-column: 1;
+    grid-row: 2;
 }
 
 p {
     text-align: center;
     font-family: Consolas, 'Courier New', Courier, monospace;
     font-weight: bolder;
-    font-size: x-large;
+    font-size: large;
     margin-top: 25px;
+    color: whitesmoke;
+}
+
+#header {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+#footer {
+    grid-row: 3;
+    grid-column: 1;
 }

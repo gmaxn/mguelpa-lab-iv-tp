@@ -88,3 +88,35 @@ export const promptSlideAnimation = trigger('prompt', [
     }))
   ])
 ]);
+
+export const carousel = trigger('shift', [
+  // Transition between any two states
+  state('none', style({ transform: 'translateX(0)'})),
+  state('left', style({ transform: 'translateX(-100%)' })),
+  state('right', style({ transform: 'translateX(100%)' })),
+  
+  transition('none => right', [
+    style({ transform: 'translateX(0)' }),
+    animate('0.5s ease-out', style({
+      transform: 'translateX(-100%)',
+    }))  
+  ]),
+  transition('right => none', [
+    style({ transform: 'translateX(100%)' }),
+    animate('0.5s ease-out', style({
+      transform: 'translateX(0)',
+    }))  
+  ]),
+  transition('none => left', [
+    style({ transform: 'translateX(0)' }),
+    animate('0.5s ease-out', style({
+      transform: 'translateX(100%)',
+    }))  
+  ]),
+  transition('left => none', [
+    style({ transform: 'translateX(-100%)' }),
+    animate('0.5s ease-out', style({
+      transform: 'translateX(0)',
+    }))  
+  ])
+]);

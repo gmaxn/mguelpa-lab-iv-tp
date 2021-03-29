@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { routesSlideinAnimation, sideNavAnimation } from './modules/app.animation';
+import { routesSlideinAnimation, sideNavAnimation } from './modules/app-animations.module';
 import { LoadingEventService } from './services/loading-event.service';
 
 @Component({
