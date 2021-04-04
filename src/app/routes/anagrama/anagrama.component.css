@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+:host {
+    display: flex;
+    padding: 5px;
+    background-color: black;
+}
+
+#game_background {
+    height: 100%;
+    width: 100%;
+    background: url("./../../../assets/games/anagrama/background.jpg");
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}

@@ -24,6 +24,8 @@ import { AboutMeComponent } from './routes/about-me/about-me.component';
 import { AboutProjectComponent } from './routes/about-project/about-project.component';
 import { CarousellComponent } from './components/home/carousell/carousell.component';
 import { AnagramaComponent } from './routes/anagrama/anagrama.component';
+import { AnagramaBoardComponent } from './components/anagrama/anagrama-board/anagrama-board.component';
+import { AnagramaTimerComponent } from './components/anagrama/anagrama-board/anagrama-timer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { AnagramaComponent } from './routes/anagrama/anagrama.component';
     AboutMeComponent,
     AboutProjectComponent,
     CarousellComponent,
-    AnagramaComponent
+    AnagramaComponent,
+    AnagramaBoardComponent,
+    AnagramaTimerComponent
   ],
   imports: [
     BrowserModule,

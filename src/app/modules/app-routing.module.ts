@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'denied', component: DeniedComponent },
-    { path: 'about-me', component: AboutMeComponent, canActivate: [UserGuardService] },
+    { path: 'about-me', component: AboutMeComponent },
     { path: 'about-the-project', component: AboutProjectComponent, canActivate: [AdminGuardService] },
     { path: 'anagrama', component: AnagramaComponent, canActivate: [UserGuardService] },
 

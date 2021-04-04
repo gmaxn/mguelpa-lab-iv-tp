@@ -1,0 +1,13 @@
+<div id="anagrama-form">
+    <div id="anagrama-set-wrapper">
+        <span *ngFor="let word of shuffledSet">{{word}}</span>
+    </div>
+    <app-anagrama-timer [miliseconds]="timerDuration"></app-anagrama-timer>
+    <div class="player_input">
+        <input type="text" name="" id="" class="form-control" style="flex:2;margin-right: 5px;"
+            [disabled]="!inputEnabled" [(ngModel)]="inputText">
+        <button class="btn btn-primary" (click)="onNewGame()" *ngIf="btnEnabled">Nuevo Juego</button>
+        <input *ngIf="btnAdivinar" id="submit" class="btn btn-success" type="button" value="Adivinar" name="new-game"
+            (click)='onVerificar()'>
+    </div>
+</div>
