@@ -69,7 +69,8 @@ app-actor-new,
 app-actor-manage,
 app-movie-manage,
 app-about-me,
-app-anagrama {
+app-anagrama, 
+app-anagrama-records {
   grid-column: 1 / span 2;
   grid-row: 2;
   height: 100%;

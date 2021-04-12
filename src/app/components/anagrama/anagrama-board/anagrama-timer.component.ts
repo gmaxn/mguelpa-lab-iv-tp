@@ -24,27 +24,8 @@ import { Timer } from 'src/app/lib/helpers/timer';
     }
   `]
 })
-export class AnagramaTimerComponent implements OnInit {
+export class AnagramaTimerComponent {
 
-  @Input() miliseconds: number;
-
-  isRunning: boolean;
-
-  width: number = 100;
-  set setWidth(width:number) {
-    this.width = width;
-  }
-
-  constructor(
-    private timer: Timer
-  ) { }
+  @Input() width: number = 100;
   
-  ngOnInit() {
-    this.timer.getPercentage().subscribe(percentage => {
-      this.width = percentage;
-    });
-  }
-
-  
-
 }

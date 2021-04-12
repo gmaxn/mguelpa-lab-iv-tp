@@ -1,4 +1,4 @@
-import { trigger, animate, transition, style, group, query, state } from '@angular/animations';
+import { trigger, animate, transition, style, group, query, state, keyframes } from '@angular/animations';
 
 export const routesSlideinAnimation = trigger('slideInAnimation', [
   // Transition between any two states
@@ -89,6 +89,25 @@ export const promptSlideAnimation = trigger('prompt', [
   ])
 ]);
 
+export const messageSlideAnimation = 
+trigger('message', [
+  transition(':enter', [
+    animate("0.2s", keyframes([
+      style({ transform: 'translate(1px)' }),
+      style({ transform: 'translate(-1px)' }),
+      style({ transform: 'translate(-3px)' }),
+      style({ transform: 'translate(3px)' }),
+      style({ transform: 'translate(1px)' }),
+      style({ transform: 'translate(-1px)' }),
+      style({ transform: 'translate(-3px)' }),
+      style({ transform: 'translate(3px)' }),
+      style({ transform: 'translate(-1px)' }),
+      style({ transform: 'translate(1px)' }),
+      style({ transform: 'translate(1px)' }),
+    ]))
+  ])
+]);
+;
 export const carousel = trigger('shift', [
   // Transition between any two states
   state('none', style({ transform: 'translateX(0)'})),

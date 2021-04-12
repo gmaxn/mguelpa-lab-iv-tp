@@ -26,6 +26,9 @@ import { CarousellComponent } from './components/home/carousell/carousell.compon
 import { AnagramaComponent } from './routes/anagrama/anagrama.component';
 import { AnagramaBoardComponent } from './components/anagrama/anagrama-board/anagrama-board.component';
 import { AnagramaTimerComponent } from './components/anagrama/anagrama-board/anagrama-timer.component';
+import { PromptComponent } from './components/shared/prompt/prompt.component';
+import { AnagramaHelpComponent } from './components/anagrama/anagrama-board/anagrama-help.component';
+import { AnagramaRecordsComponent } from './routes/anagrama-records/anagrama-records.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { AnagramaTimerComponent } from './components/anagrama/anagrama-board/ana
     CarousellComponent,
     AnagramaComponent,
     AnagramaBoardComponent,
-    AnagramaTimerComponent
+    AnagramaTimerComponent,
+    PromptComponent,
+    AnagramaHelpComponent,
+    AnagramaRecordsComponent
   ],
   imports: [
     BrowserModule,

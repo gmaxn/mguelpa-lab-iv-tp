@@ -124,3 +124,10 @@
     color: rgb(229, 229, 16);
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
+
+.game_card>div>a {
+    font-family: "Permanent Marker", cursive;
+    font-size: 12px;
+    width: 75px;
+    margin: auto;
+}

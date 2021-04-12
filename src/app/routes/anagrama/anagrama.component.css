@@ -4,13 +4,23 @@
     padding: 5px;
     background-color: black;
 }
-
 #game_background {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
     height: 100%;
     width: 100%;
+    padding-top: 215px;
     background: url("./../../../assets/games/anagrama/background.jpg");
     border: 2px solid whitesmoke;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
+}
+
+app-anagrama-help {
+    position: absolute;
+}
+app-anagrama-board {
+
 }

@@ -1,0 +1,28 @@
+<div id="game_background">
+    <div id="component-wrapper">
+
+        <div id="person-grid-wrapper" class="show-margins">
+    
+            <div class="layout" id="table-wrapper">
+    
+                <table *ngIf='records && records.length'>
+    
+                    <thead>
+                        <th>User</th>
+                        <th>Points</th>
+                    </thead>
+    
+                    <tbody>
+                        <tr *ngFor='let record of records'>
+                            <td>{{ record.username }}</td>
+                            <td>{{ record.points }}</td>
+                        </tr>
+                    </tbody>
+    
+                </table>
+    
+            </div>
+    
+        </div>
+    </div>
+</div>

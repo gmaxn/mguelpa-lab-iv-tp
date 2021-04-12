@@ -1,56 +1,64 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class Timer {
 
-  private duration:number;
-  private percentage: Subject<number>;
-  private isActive: BehaviorSubject<boolean>;
-  private isActiveChanged: Observable<boolean>;
-  private iteration;
+  private timer: BehaviorSubject<number>;
+  private running: BehaviorSubject<boolean>;
+  private percentage: BehaviorSubject<number>;
+  private task;
 
-  constructor() { 
-    this.isActive = new BehaviorSubject<boolean>(false);
-    this.isActiveChanged = this.isActive.asObservable();
-    this.percentage = new Subject<number>();
+  get isRunning() {
+    return this.running;
   }
 
-  init(durationMs: number): void {
-    this.duration = durationMs;
-    let countdown = this.duration;
-
-    this.iteration = setInterval(() => {
-      countdown--;
-
-      let percent = (countdown * 100) / this.duration;
-
-      if(percent === 0) {
-        this.isRunning(false);
-        clearInterval(this.iteration);
-      }
-      else {
-        this.percentage.next(percent);
-      }
-    }, 1);
-  }
-  
-  public end(): void {
-    this.isRunning(false);
-    clearInterval(this.iteration);
-  }
-
-  public isRunning(value: boolean) {
-    this.isActive.next(value);
-  }
-
-  getPercentage() {
+  get progress() {
     return this.percentage;
   }
 
-  getStatus() {
-    return this.isActive;
+  constructor() {
+    this.timer = new BehaviorSubject<number>(0);
+    this.running = new BehaviorSubject<boolean>(false);
+    this.percentage = new BehaviorSubject<number>(100);
+  }
+
+  play(lapse: number): void {
+    var reducer = lapse;
+    var count = 0;
+    
+    this.running.next(true);
+    this.timer.next(lapse);
+
+    this.task = setInterval(() => {
+      reducer--;
+      this.percentage.next((reducer * 100) / lapse);
+      this.timer.next(reducer);
+      if (reducer === 0) {
+        this.break();
+        this.running.next(false);
+      }
+    }, 1);
+  }
+
+  stop() {
+    
+  }
+
+  reset() {
+    this.break();
+    this.running.next(false);
+    this.percentage.next(100);
+  }
+
+  pause() {
+
+  }
+
+  break() {
+    return clearInterval(this.task);
   }
 }

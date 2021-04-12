@@ -1,4 +1,4 @@
-import { Component,  EventEmitter, OnInit, Output } from '@angular/core';
+import { Component,  EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-prompt',
@@ -7,15 +7,27 @@ import { Component,  EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class PromptComponent implements OnInit {
 
-  @Output() value: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() title = "You win!";
+  @Input() message = "Congratulations you have earned 5 points";
+  @Input() prompt:any;
+
+  public ok = true;
+  public cancel = false;
+
+  @Output() response: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onConfirm(event:Event) {
+  onSelection(event:Event) {
     const value = (<HTMLButtonElement>event.target)?.value;
-    this.value.emit((value === 'yes'))
+    this.response.emit({
+      show:false,
+      title:this.prompt.title,
+      message:this.prompt.message,
+      buttons:this.prompt.buttons,
+    });
   }
 }

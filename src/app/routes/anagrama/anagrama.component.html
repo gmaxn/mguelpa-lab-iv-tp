@@ -1,3 +1,5 @@
 <div id="game_background">
-    <app-anagrama-board></app-anagrama-board>
+    <app-anagrama-help @message *ngIf="message" [message]="message"></app-anagrama-help>
+    <app-anagrama-board (prompt)="onPrompt($event)" (message)="onMessage($event)"></app-anagrama-board>
+    <app-prompt @prompt *ngIf="prompt?.show" [prompt]="prompt" (response)="onPrompt($event)"></app-prompt>
 </div>

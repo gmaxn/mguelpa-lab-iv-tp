@@ -38,6 +38,7 @@
   color: rgb(229, 229, 16);
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   text-align: center;
+  margin-top: 5px;
 }
 
 .prompt-text {
@@ -48,5 +49,5 @@
 
 button {
   margin: 5px;
-  width: 50px;
+  width: 100px;
 }

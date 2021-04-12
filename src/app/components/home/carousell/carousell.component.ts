@@ -1,5 +1,5 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GameInfo } from 'src/app/models/game-info';
 import { carousel } from 'src/app/modules/app-animations.module';
 import { GameService } from 'src/app/services/game/game.service';
@@ -10,7 +10,7 @@ import { GameService } from 'src/app/services/game/game.service';
   templateUrl: './carousell.component.html',
   styleUrls: ['./carousell.component.css']
 })
-export class CarousellComponent implements OnInit {
+export class CarousellComponent implements OnInit, OnDestroy {
 
   public items:GameInfo[] = [];
   public pagination: GameInfo[] = [];
@@ -31,6 +31,10 @@ export class CarousellComponent implements OnInit {
   constructor(
     private games: GameService
   ) { }
+
+  ngOnDestroy(): void {
+    clearInterval(this.repeater);
+  }
 
   ngOnInit(): void {
     this.loadTitles();
