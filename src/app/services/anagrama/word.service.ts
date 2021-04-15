@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Word } from 'src/app/lib/games/anagrama/word';
+import { Word } from 'src/app/lib/games/word';
 
 @Injectable({
   providedIn: 'root'

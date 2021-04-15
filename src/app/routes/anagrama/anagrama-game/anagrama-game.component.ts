@@ -1,15 +1,16 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { messageSlideAnimation, promptSlideAnimation } from 'src/app/modules/app-animations.module';
+
 @Component({
-  selector: 'app-anagrama',
+  selector: 'app-anagrama-game',
   animations: [
     promptSlideAnimation,
     messageSlideAnimation
   ],
-  templateUrl: './anagrama.component.html',
-  styleUrls: ['./anagrama.component.css']
+  templateUrl: './anagrama-game.component.html',
+  styleUrls: ['./anagrama-game.component.css']
 })
-export class AnagramaComponent implements OnInit, AfterViewInit {
+export class AnagramaGameComponent  implements OnInit, AfterViewInit {
   public prompt:any;
   public message:string = '';
   

@@ -1,0 +1,32 @@
+<div id="game-wrapper">
+
+    <div class="positioner">
+        <div class="cards">
+            <img [src]="machineCard" alt="card">
+        </div>
+    </div>
+
+    <!-- <app-ppt-timer [width]="timer"></app-ppt-timer> -->
+
+    <div class="positioner">
+        <div class="cards" *ngIf="!hide1">
+            <img src="./../../../../assets/games/rock-paper-scissor/rock.jpg" alt="card" name="rock" (click)="onChooseCard($event)">
+        </div>
+
+        <div class="cards" *ngIf="!hide2">
+            <img src="./../../../../assets/games/rock-paper-scissor/paper.jpg" alt="card" name="paper" (click)="onChooseCard($event)">
+        </div>
+
+        <div class="cards" *ngIf="!hide3">
+            <img src="./../../../../assets/games/rock-paper-scissor/scissors.jpg" alt="card" name="scissors" (click)="onChooseCard($event)">
+        </div>
+    </div>
+
+    <p *ngIf="showTimer">{{timer}}</p>
+
+    <button class="btn btn-primary" (click)="NuevoJuego()">Nuevo Juego</button>
+
+    <app-prompt-rps  @prompt *ngIf="prompt?.show" [prompt]="prompt" (response)="onPrompt($event)"></app-prompt-rps>
+    
+
+</div>

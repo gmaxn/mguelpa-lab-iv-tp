@@ -3,7 +3,7 @@ import { BehaviorSubject } from "rxjs";
 import { Player } from "src/app/models/player";
 import { WordService } from "src/app/services/anagrama/word.service";
 import { GameService } from "src/app/services/game/game.service";
-import { Game } from "../game";
+import { Game } from "./game";
 import { Word } from "./word";
 
 @Injectable({

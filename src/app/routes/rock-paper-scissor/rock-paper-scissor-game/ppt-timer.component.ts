@@ -1,7 +1,7 @@
 import { Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-anagrama-timer',
+  selector: 'app-ppt-timer',
   template:`
   <div id="timer-wrapper">
     <div id="timer-fill" [style.width.%]="width"></div>
@@ -23,7 +23,7 @@ import { Component, Input} from '@angular/core';
     }
   `]
 })
-export class AnagramaTimerComponent {
+export class PptTimerComponent {
 
   @Input() width: number = 100;
   

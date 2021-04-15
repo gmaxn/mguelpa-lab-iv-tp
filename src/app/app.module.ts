@@ -23,12 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutMeComponent } from './routes/about-me/about-me.component';
 import { AboutProjectComponent } from './routes/about-project/about-project.component';
 import { CarousellComponent } from './components/home/carousell/carousell.component';
-import { AnagramaComponent } from './routes/anagrama/anagrama.component';
-import { AnagramaBoardComponent } from './components/anagrama/anagrama-board/anagrama-board.component';
-import { AnagramaTimerComponent } from './components/anagrama/anagrama-board/anagrama-timer.component';
-import { PromptComponent } from './components/shared/prompt/prompt.component';
-import { AnagramaHelpComponent } from './components/anagrama/anagrama-board/anagrama-help.component';
-import { AnagramaRecordsComponent } from './routes/anagrama-records/anagrama-records.component';
+import { PromptRpsComponent } from './components/prompt-rps/prompt-rps.component';
 
 @NgModule({
   declarations: [
@@ -43,13 +38,7 @@ import { AnagramaRecordsComponent } from './routes/anagrama-records/anagrama-rec
     SideNavComponent,
     AboutMeComponent,
     AboutProjectComponent,
-    CarousellComponent,
-    AnagramaComponent,
-    AnagramaBoardComponent,
-    AnagramaTimerComponent,
-    PromptComponent,
-    AnagramaHelpComponent,
-    AnagramaRecordsComponent
+    CarousellComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { Anagrama } from 'src/app/lib/games/anagrama/anagrama';
+import { Anagrama } from 'src/app/lib/games/anagrama';
 import { Player } from 'src/app/models/player';
 import { GameService } from 'src/app/services/game/game.service';
 
@@ -55,7 +55,6 @@ export class AnagramaBoardComponent implements OnInit {
   }
 
   onStart() {
-    console.log('hola', this.player);
     this.anagrama.newGame(this.player);
   }
 

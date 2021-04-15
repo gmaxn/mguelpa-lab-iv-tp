@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from '../routes/about-me/about-me.component';
 import { AboutProjectComponent } from '../routes/about-project/about-project.component';
-import { AnagramaRecordsComponent } from '../routes/anagrama-records/anagrama-records.component';
-import { AnagramaComponent } from '../routes/anagrama/anagrama.component';
 import { DeniedComponent } from '../routes/denied/denied.component';
 import { HomeComponent } from '../routes/home/home.component';
 import { NotFoundComponent } from '../routes/not-found/not-found.component';
@@ -17,10 +15,17 @@ const routes: Routes = [
     { path: 'denied', component: DeniedComponent },
     { path: 'about-me', component: AboutMeComponent },
     { path: 'about-the-project', component: AboutProjectComponent, canActivate: [AdminGuardService] },
-    { path: 'anagrama', component: AnagramaComponent, canActivate: [UserGuardService] },
-    { path: 'records/anagrama', component: AnagramaRecordsComponent, canActivate: [UserGuardService] },
-
     { path: '', component: HomeComponent },
+    { 
+      path: 'anagrama', 
+      canLoad: [UserGuardService],
+      loadChildren: () => import('../routes/anagrama/anagrama.module').then(m => m.AnagramaModule) 
+    },
+    { 
+      path: 'rps', 
+      canLoad: [UserGuardService], 
+      loadChildren: () => import('../routes/rock-paper-scissor/rock-paper-scissor.module').then(m => m.RockPaperScissorModule) 
+    },
     { path: '**', component: NotFoundComponent }
 ];
 

@@ -13,14 +13,11 @@
     height: 100%;
     width: 100%;
     padding-top: 215px;
-    background: url("./../../../assets/games/anagrama/background.jpg");
+    background: url("./../../../../assets/games/anagrama/background.jpg");
     border: 2px solid whitesmoke;
     border-radius: 5px;
 }
 
 app-anagrama-help {
     position: absolute;
-}
-app-anagrama-board {
-
 }

@@ -1,0 +1,9 @@
+<div id="prompt-margin">
+    <div id="prompt">
+        <p class="prompt-title">{{prompt.title}}</p>
+        <p class="prompt-text">{{prompt.message}}</p>
+        <div style="display: block; text-align: center;">
+            <button *ngFor="let button of prompt.buttons" (click)="onSelection($event)" value="{{button}}" class="btn btn-primary">{{button}}</button>
+        </div>
+    </div>
+</div>
