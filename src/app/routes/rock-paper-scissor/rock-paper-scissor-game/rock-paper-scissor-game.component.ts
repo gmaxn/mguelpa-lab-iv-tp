@@ -113,10 +113,7 @@ export class RockPaperScissorGameComponent implements OnInit {
       };
     }
 
-
     clearInterval(this.repetidor);
-
-
   }
 
   onPrompt(e: Event) {

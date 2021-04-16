@@ -1,5 +1,4 @@
 <div class="toolbar" role="banner">
-
   <div id="btn_sidenav" class="my_btn" (click)="onShowSideNav()" *ngIf="logged" data-toggle="tooltip" data-placement="bottom" title="Side Nav">
     <i class="fas fa-bars"></i>
   </div>
@@ -10,6 +9,10 @@
 
   <div id="btn_about" class="my_btn" routerLink="/about-me" data-placement="bottom" title="About Me">
     <i class="fas fa-info-circle"></i>
+  </div>
+
+  <div id="btn_about" class="my_btn" routerLink="/chat" data-placement="bottom" title="Chat">
+    <i class="fas fa-comments"></i>  
   </div>
 
   <div id="middle-bar">

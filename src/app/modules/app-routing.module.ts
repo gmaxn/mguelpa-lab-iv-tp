@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from '../routes/about-me/about-me.component';
 import { AboutProjectComponent } from '../routes/about-project/about-project.component';
+import { ChatComponent } from '../routes/chat/chat.component';
 import { DeniedComponent } from '../routes/denied/denied.component';
 import { HomeComponent } from '../routes/home/home.component';
 import { NotFoundComponent } from '../routes/not-found/not-found.component';
@@ -12,6 +13,7 @@ import { UserGuardService } from '../services/user/user-guard.service';
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'signin', component: SigninComponent },
+    { path: 'chat', component: ChatComponent, canActivate: [UserGuardService] },
     { path: 'denied', component: DeniedComponent },
     { path: 'about-me', component: AboutMeComponent },
     { path: 'about-the-project', component: AboutProjectComponent, canActivate: [AdminGuardService] },

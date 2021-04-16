@@ -24,6 +24,7 @@ import { AboutMeComponent } from './routes/about-me/about-me.component';
 import { AboutProjectComponent } from './routes/about-project/about-project.component';
 import { CarousellComponent } from './components/home/carousell/carousell.component';
 import { PromptRpsComponent } from './components/prompt-rps/prompt-rps.component';
+import { ChatComponent } from './routes/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PromptRpsComponent } from './components/prompt-rps/prompt-rps.component
     SideNavComponent,
     AboutMeComponent,
     AboutProjectComponent,
-    CarousellComponent
+    CarousellComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
