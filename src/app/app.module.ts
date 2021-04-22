@@ -23,8 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutMeComponent } from './routes/about-me/about-me.component';
 import { AboutProjectComponent } from './routes/about-project/about-project.component';
 import { CarousellComponent } from './components/home/carousell/carousell.component';
-import { PromptRpsComponent } from './components/prompt-rps/prompt-rps.component';
-import { ChatComponent } from './routes/chat/chat.component';
+import { ChatComponent } from './components/shared/chat/chat.component';
+import { SharedComponentsModule } from './modules/shared-components.module';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,8 @@ import { ChatComponent } from './routes/chat/chat.component';
     AngularFireAuthModule,
     AngularFireStorageModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

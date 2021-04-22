@@ -1,1 +1,2 @@
-<app-signin-form></app-signin-form>
+<app-signin-form (prompt)="onPrompt($event)"></app-signin-form>
+<app-prompt @prompt *ngIf="prompt?.show" [prompt]="prompt" (response)="onResponse($event)"></app-prompt>

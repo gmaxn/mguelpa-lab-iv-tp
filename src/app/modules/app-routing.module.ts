@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from '../routes/about-me/about-me.component';
 import { AboutProjectComponent } from '../routes/about-project/about-project.component';
-import { ChatComponent } from '../routes/chat/chat.component';
+import { ChatComponent } from '../components/shared/chat/chat.component';
 import { DeniedComponent } from '../routes/denied/denied.component';
 import { HomeComponent } from '../routes/home/home.component';
 import { NotFoundComponent } from '../routes/not-found/not-found.component';
@@ -27,6 +27,10 @@ const routes: Routes = [
       path: 'rps', 
       canLoad: [UserGuardService], 
       loadChildren: () => import('../routes/rock-paper-scissor/rock-paper-scissor.module').then(m => m.RockPaperScissorModule) 
+    },
+    { 
+      path: 'memotest', 
+      loadChildren: () => import('../routes/memotest/memotest.module').then(m => m.MemotestModule) 
     },
     { path: '**', component: NotFoundComponent }
 ];

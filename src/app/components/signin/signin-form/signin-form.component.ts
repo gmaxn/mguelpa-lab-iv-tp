@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -38,6 +38,9 @@ export class SigninFormComponent implements OnInit {
       class: '',
     }
   };
+
+  @Output() public prompt: EventEmitter<any> = new EventEmitter<any>();
+
 
   private subscriptions: Subscription[] = [];
 
@@ -116,7 +119,7 @@ export class SigninFormComponent implements OnInit {
         this.router.navigate(['home']);
       },
       (err) => {
-        alert(err);
+        this.prompt.emit(`sarasa: ${err}`);
       }
     ).finally(() => { this._loading.emitChange(false) });
   }

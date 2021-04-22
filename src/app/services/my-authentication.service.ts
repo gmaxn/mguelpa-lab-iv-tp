@@ -19,34 +19,32 @@ export class MyAuthenticationService {
     private _login: LoggedEventService,
     private _userChanged: UserChangedEventService
   ) { }
-  
+
   public async signIn(user: UserCredentials) {
     return new Promise<any>((resolve, reject) => {
       this.auth.signInWithEmailAndPassword(user.username, user.password).then(response => {
         // 1. get user profile info
         this.db.collection<any>("users").doc(response.user?.uid).valueChanges().subscribe(data => {
-            // 2. set local storage
-            const credentials = {
-              uid: data.uid,
-              firstname: data.firstname,
-              lastname: data.lastname,
-              username: data.email,
-              roles: data.roles
-            };
-            localStorage.setItem('userCredentials', JSON.stringify(credentials));
-            this._userChanged.emitChange(credentials.username)        
-            this._login.emitChange(true);    
-            resolve(credentials);
-          }
-        );
-      }).catch(error => {
-        reject(error)
-      });
+          // 2. set local storage
+          const credentials = {
+            uid: data.uid,
+            firstname: data.firstname,
+            lastname: data.lastname,
+            username: data.email,
+            roles: data.roles
+          };
+          localStorage.setItem('userCredentials', JSON.stringify(credentials));
+          this._userChanged.emitChange(credentials.username)
+          this._login.emitChange(true);
+          resolve(credentials);
+        });
+      }).catch(err => reject(err.message));
     });
   }
 
   public async signUp(user: User) {
     return new Promise<any>((resolve, reject) => {
+
       this.auth.createUserWithEmailAndPassword(user.credentials.username, user.credentials.password).then(response => {
         // 1. persist profile info
         this.db.collection<any>("users").doc(response.user?.uid).set(user.toProfile(response.user?.uid)).then(() => {
@@ -66,9 +64,8 @@ export class MyAuthenticationService {
             resolve(credentials)
           });
         });
-      }).catch(error => {
-        reject(error)
-      });
+      }).catch(error => reject(error));
+
     });
   }
 
@@ -98,7 +95,7 @@ export class MyAuthenticationService {
     else {
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
-    console.log(errorMessage);
+    //console.log(errorMessage);
     return throwError(errorMessage);
   }
 }

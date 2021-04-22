@@ -6,9 +6,9 @@ import { AnagramaBoardComponent } from 'src/app/components/anagrama/anagrama-boa
 import { AnagramaTimerComponent } from 'src/app/components/anagrama/anagrama-board/anagrama-timer.component';
 import { AnagramaHelpComponent } from 'src/app/components/anagrama/anagrama-board/anagrama-help.component';
 import { AnagramaRecordsComponent } from './anagrama-records/anagrama-records.component';
-import { PromptComponent } from 'src/app/components/shared/prompt/prompt.component';
 import { FormsModule } from '@angular/forms';
 import { AnagramaGameComponent } from './anagrama-game/anagrama-game.component';
+import { SharedComponentsModule } from 'src/app/modules/shared-components.module';
 
 
 @NgModule({
@@ -17,13 +17,13 @@ import { AnagramaGameComponent } from './anagrama-game/anagrama-game.component';
     AnagramaTimerComponent,
     AnagramaHelpComponent,
     AnagramaRecordsComponent,
-    PromptComponent,
     AnagramaGameComponent
   ],
   imports: [
     CommonModule,
     AnagramaRoutingModule,
     FormsModule,
+    SharedComponentsModule
   ]
 })
 export class AnagramaModule { }

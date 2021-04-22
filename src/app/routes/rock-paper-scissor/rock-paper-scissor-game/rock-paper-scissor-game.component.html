@@ -26,7 +26,7 @@
 
     <button class="btn btn-primary" (click)="NuevoJuego()">Nuevo Juego</button>
 
-    <app-prompt-rps  @prompt *ngIf="prompt?.show" [prompt]="prompt" (response)="onPrompt($event)"></app-prompt-rps>
+    <app-prompt @prompt *ngIf="prompt?.show" [prompt]="prompt" (response)="onPrompt($event)"></app-prompt>
     
 
 </div>
