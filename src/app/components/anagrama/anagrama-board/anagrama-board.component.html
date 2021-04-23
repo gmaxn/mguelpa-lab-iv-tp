@@ -5,9 +5,9 @@
         background-color: rgb(95, 70, 145);
         margin-top: 5px;
         display: flex;
-        flex-wrap:wrap;
+        flex-wrap: wrap;
         justify-content: space-around;
-        align-items: center;   
+        align-items: center;
     }
 </style>
 
@@ -25,7 +25,12 @@
 
     <div id="keyboard-wrapper">
         <div style="display: flex; justify-content:space-between; width: 100%;">
-            <button class="btn btn-outline-light btn-sm" style="margin: 5px" (click)="onDelete()"><i class="fas fa-trash-alt"></i></button>
-            <button class="btn btn-outline-light btn-sm" style="margin: 5px; align-self: flex-end;" (click)="onBackSpace()"><i class="fas fa-backspace"></i></button>
+            <button class="btn btn-outline-light btn-sm" style="margin: 5px" (click)="onDelete()"><i
+                    class="fas fa-trash-alt"></i></button>
+            <button class="btn btn-outline-light btn-sm" style="margin: 5px; align-self: flex-end;"
+                (click)="onBackSpace()"><i class="fas fa-backspace"></i></button>
         </div>
-        <button class="btn btn-outline-light btn-sm" style="margin: 2px; height:30px; width:30px;" *ngFor="let key of keyboard" (click)="onKeyPress(k
+        <button class="btn btn-outline-light btn-sm" style="margin: 2px; height:30px; width:30px;"
+            *ngFor="let key of keyboard" (click)="onKeyPress(key)">{{key}}</button>
+    </div>
+</div>
