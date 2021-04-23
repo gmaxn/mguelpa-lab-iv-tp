@@ -20,6 +20,15 @@ export class AnagramaBoardComponent implements OnInit {
   @Output() public prompt: EventEmitter<any> = new EventEmitter<any>();
   @Output() public message: EventEmitter<string> = new EventEmitter<string>();
 
+  public keyboard = [
+    'q','w','e','r',
+    't','y','u','i',
+    'o','p','a','s',
+    'd','f','g','h',
+    'j','k','l','z',
+    'x','c','v','b',
+    'n','m'
+  ]
 
   constructor(private anagrama: Anagrama, private gs: GameService) { }
 
@@ -28,30 +37,46 @@ export class AnagramaBoardComponent implements OnInit {
 
     this.gs.getPlayer('anagrama', i.username).subscribe(player => {
       this.player = player ?? {
-        uid: i.uid, 
+        uid: i.uid,
         username: i.username,
-        points: 0        
+        points: 0
       };
     });
 
     this.anagrama.callback.subscribe(response => {
 
-        this.shuffledSet = response.set;
+      this.shuffledSet = response.set;
 
-        if(response.prompt) {
-          this.prompt.emit(response.prompt);
-        }
-        this.message.emit(response.message);
+      if (response.prompt) {
+        this.prompt.emit(response.prompt);
       }
+      this.message.emit(response.message);
+    }
     );
 
     this.anagrama.clock.subscribe(state => {
       this.progress = state.percent;
       this.isRunning = state.running;
-      if(!state.running) {
+      if (!state.running) {
         this.answer = '';
       }
     });
+  }
+
+  onDelete() {
+    this.answer = '';
+  }
+
+  onBackSpace() {
+    if (this.answer.length > 0 && this.isRunning) {
+      this.answer = this.answer.substring(0, this.answer.length - 1);
+    }
+  }
+
+  onKeyPress(key: string) {
+    if (this.isRunning) {
+      this.answer = this.answer.concat(key);
+    }
   }
 
   onStart() {

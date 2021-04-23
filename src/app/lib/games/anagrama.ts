@@ -74,7 +74,7 @@ export class Anagrama extends Game {
 
         this._callback.next(s);
         
-        this.start(3000);
+        this.start(5000);
     }
 
     endGame(won: boolean = false) {
