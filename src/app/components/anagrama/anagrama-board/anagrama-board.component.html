@@ -17,7 +17,7 @@
     </div>
     <app-anagrama-timer [width]="progress"></app-anagrama-timer>
     <div class="player_input">
-        <input type="text" name="" id="" class="form-control" style="flex:2;margin-right: 5px; flex-direction: column;" [disabled]="!isRunning"
+        <input type="text" name="" id="" class="form-control" style="flex:2;margin-right: 5px; flex-direction: column;"
             [(ngModel)]="answer" disabled>
         <button class="btn btn-primary" (click)="onStart()" *ngIf="!isRunning">New Game</button>
         <button class="btn btn-success" (click)="onAnswer()" *ngIf="isRunning">Answer</button>
@@ -28,6 +28,4 @@
             <button class="btn btn-outline-light btn-sm" style="margin: 5px" (click)="onDelete()"><i class="fas fa-trash-alt"></i></button>
             <button class="btn btn-outline-light btn-sm" style="margin: 5px; align-self: flex-end;" (click)="onBackSpace()"><i class="fas fa-backspace"></i></button>
         </div>
-        <button class="btn btn-outline-light btn-sm" style="margin: 2px; height:30px; width:30px;" *ngFor="let key of keyboard" (click)="onKeyPress(key)">{{key}}</button>
-    </div>
-</div>
+        <button class="btn btn-outline-light btn-sm" style="margin: 2px; height:30px; width:30px;" *ngFor="let key of keyboard" (click)="onKeyPress(k
