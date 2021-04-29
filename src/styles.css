@@ -70,9 +70,14 @@ app-actor-manage,
 app-movie-manage,
 app-about-me,
 app-anagrama-game, 
-app-anagrama-records {
+app-anagrama-records,
+app-memo-game,
+app-memotest-records,
+app-tic-tac-toe-game,
+app-tic-tac-toe-records {
   grid-column: 1 / span 2;
   grid-row: 2;
   height: 100%;
   /* border: 1px solid orange; */
 }
+

@@ -1,5 +1,8 @@
 export interface Card {
-    index: number,
+    uid: number;
+    index: number;
     name: string;
     imageUrl: string;
+    base64:any;
+    locked: boolean;
 }

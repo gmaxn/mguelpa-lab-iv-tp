@@ -1,0 +1,12 @@
+<style>
+
+</style>
+
+<div id="memotest-board-container" *ngIf='deafaultSet && deafaultSet.length'>
+    <div class="card" *ngFor='let card of deafaultSet; index as i;'>
+        <img [src]="card.imageUrl" (click)="onSelected(i)">
+    </div>
+
+</div>
+
+<button id="btn_new" class="btn btn-primary" (click)="newGame()" [disabled]="isRunning">Start</button>

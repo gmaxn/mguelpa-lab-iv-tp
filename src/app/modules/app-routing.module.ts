@@ -29,8 +29,12 @@ const routes: Routes = [
       loadChildren: () => import('../routes/rock-paper-scissor/rock-paper-scissor.module').then(m => m.RockPaperScissorModule) 
     },
     { 
-      path: 'memotest', 
-      loadChildren: () => import('../routes/memotest/memotest.module').then(m => m.MemotestModule) 
+      path: 'memo', 
+      loadChildren: () => import('../routes/memo/memo.module').then(m => m.MemoModule) 
+    },
+    { 
+      path: 'tic-tac-toe', 
+      loadChildren: () => import('../routes/tic-tac-toe/tic-tac-toe.module').then(m => m.TicTacToeModule) 
     },
     { path: '**', component: NotFoundComponent }
 ];

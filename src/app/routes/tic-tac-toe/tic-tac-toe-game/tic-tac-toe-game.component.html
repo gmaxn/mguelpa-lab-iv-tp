@@ -1,0 +1,11 @@
+<style>
+    #route-container {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+<div id='route-container'>
+    <app-tic-tac-toe-board></app-tic-tac-toe-board>
+    <app-prompt @prompt *ngIf="prompt?.show" [prompt]="prompt" (response)="onPrompt($event)"></app-prompt>
+</div>

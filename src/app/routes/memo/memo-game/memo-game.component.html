@@ -1,0 +1,10 @@
+<style>
+    #route-container {
+        height: 100%;
+    }
+</style>
+
+<div id='route-container'>
+    <app-memotest-board (prompt)="onPrompt($event)"></app-memotest-board>
+    <app-prompt @prompt *ngIf="prompt?.show" [prompt]="prompt" (response)="onPrompt($event)"></app-prompt>
+</div>

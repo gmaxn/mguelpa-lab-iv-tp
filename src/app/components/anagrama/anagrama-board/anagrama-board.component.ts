@@ -30,7 +30,10 @@ export class AnagramaBoardComponent implements OnInit {
     'n','m'
   ]
 
-  constructor(private anagrama: Anagrama, private gs: GameService) { }
+  constructor(
+    private anagrama: Anagrama, 
+    private gs: GameService
+  ) { }
 
   ngOnInit(): void {
     const i = JSON.parse(localStorage.getItem('userCredentials')!);
@@ -44,15 +47,12 @@ export class AnagramaBoardComponent implements OnInit {
     });
 
     this.anagrama.callback.subscribe(response => {
-
       this.shuffledSet = response.set;
-
       if (response.prompt) {
         this.prompt.emit(response.prompt);
       }
       this.message.emit(response.message);
-    }
-    );
+    });
 
     this.anagrama.clock.subscribe(state => {
       this.progress = state.percent;

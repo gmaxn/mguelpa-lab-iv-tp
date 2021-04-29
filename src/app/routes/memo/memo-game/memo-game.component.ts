@@ -2,18 +2,18 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/co
 import { messageSlideAnimation, promptSlideAnimation } from 'src/app/modules/app-animations.module';
 
 @Component({
-  selector: 'app-anagrama-game',
+  selector: 'app-memo-game',
   animations: [
     promptSlideAnimation,
     messageSlideAnimation
   ],
-  templateUrl: './anagrama-game.component.html',
-  styleUrls: ['./anagrama-game.component.css']
+  templateUrl: './memo-game.component.html',
+  styleUrls: ['./memo-game.component.css']
 })
-export class AnagramaGameComponent implements OnInit, AfterViewInit {
+export class MemoGameComponent implements OnInit, AfterViewInit {
+
   public prompt:any;
-  public message:string = '';
-  
+
   constructor(private cd: ChangeDetectorRef) { }
   ngAfterViewInit(): void {
     this.cd.detectChanges();
@@ -21,14 +21,8 @@ export class AnagramaGameComponent implements OnInit, AfterViewInit {
 
   ngOnInit() { }
 
-  onMessage(message:string) {
-    this.message = message;
-    setTimeout(() => {
-      this.message = '';
-    }, 500);
-  }
-
   onPrompt(e:Event) {
     this.prompt = e;
   }
+
 }

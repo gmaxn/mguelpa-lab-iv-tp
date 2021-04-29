@@ -23,12 +23,12 @@ export class Memotest extends Juego {
     public initGame() {
 
 
-        this.ms.getCards().subscribe({
-            next: c => {
-                this.shuffledCards = this.shuffle(c.concat(c));
-            },
-            error: err => this.errorMessage = err
-        });
+        // this.ms.getCards().subscribe({
+        //     next: c => {
+        //         this.shuffledCards = this.shuffle(c.concat(c));
+        //     },
+        //     error: err => this.errorMessage = err
+        // });
 
     }
 
@@ -56,7 +56,7 @@ export class Memotest extends Juego {
     isMatch(array: Card[]): boolean {
         
         if(array.length === 2){
-            return (array[0].name === array[1].name && array[0].index !== array[1].index);
+            return (array[0].name === array[1].name && array[0].uid !== array[1].uid);
         }
 
         return false;
