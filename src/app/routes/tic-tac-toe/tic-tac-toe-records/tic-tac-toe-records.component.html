@@ -16,7 +16,9 @@
 </style>
 
 <div id="game_background">
-    <h2>Anagrama - Records</h2>
+    <h2>Tic Tac Toe - Records</h2>
+
+
 
     <div id="person-grid-wrapper" class="show-margins">
 
@@ -32,13 +34,11 @@
                 </thead>
 
                 <tbody>
-                    
                     <tr *ngFor='let record of records'>
                         <td>{{ record.username }}</td>
                         <td>{{ record.points }}</td>
                         <td>{{ record.lastDatePlayed }}</td>
                     </tr>
-
                 </tbody>
 
             </table>

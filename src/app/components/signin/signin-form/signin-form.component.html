@@ -35,6 +35,9 @@
         <div class="form-group">
             <button (click)="onAutoComplete()" class="btn float-left btn-primary" *ngIf="!signUp" style="margin-top: 15px;">Auto Complete</button>
 
+            <button (click)="onAutoSignup()" class="btn float-left btn-primary" *ngIf="signUp" style="margin-top: 15px;">Generate User</button>
+
+
             <input type="submit" value="Sign in" class="btn float-right login_btn" *ngIf="!signUp" (click)="onSignIn()">
 
             <input type="submit" value="Sign up" class="btn float-right login_btn" *ngIf="signUp" (click)="onSignUp()">

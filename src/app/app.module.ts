@@ -25,6 +25,7 @@ import { AboutProjectComponent } from './routes/about-project/about-project.comp
 import { CarousellComponent } from './components/home/carousell/carousell.component';
 import { ChatComponent } from './components/shared/chat/chat.component';
 import { SharedComponentsModule } from './modules/shared-components.module';
+import { SurveyComponent } from './routes/survey/survey.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SharedComponentsModule } from './modules/shared-components.module';
     AboutMeComponent,
     AboutProjectComponent,
     CarousellComponent,
-    ChatComponent
+    ChatComponent,
+    SurveyComponent
   ],
   imports: [
     BrowserModule,

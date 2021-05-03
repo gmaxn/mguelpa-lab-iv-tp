@@ -10,12 +10,17 @@ app-carousell {
 }
 
 p {
-    text-align: center;
+    text-align: left;
+
+    width: 95%;
+    margin: auto;
+
+    padding-left: 15px;
     font-family: Consolas, 'Courier New', Courier, monospace;
     font-weight: bolder;
     font-size: large;
     margin-top: 25px;
-    color: whitesmoke;
+    color: beige;
 }
 
 #header {

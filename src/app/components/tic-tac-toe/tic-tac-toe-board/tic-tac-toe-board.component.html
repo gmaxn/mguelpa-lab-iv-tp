@@ -14,22 +14,23 @@
     h1 {
         color: whitesmoke;;
     }
+
+    #s {
+        border: 1px solid whitesmoke;
+        padding: 10x;
+    }
 </style>
 
 
 <div class="header">
-    <h1 class="text-center text-orange " *ngIf="game.isGameRunning" [ngClass]="{'text-teal': game.activePlayer == 'O'}">
-        {{ game.activePlayer }}'S TURN
-    </h1>
-    <h1 class="text-center text-grey-darker" *ngIf="!game.isGameRunning"> Tic-Tac-Toe </h1>
+    <h1 class="text-center text-grey-darker"> Tic-Tac-Toe </h1>
 </div>
 
 <div id="memotest-board-container">
-    <div class="card" *ngFor="let square of game.board">
-        <app-square [square]="square" border-blue> </app-square>
-    </div>
-
+    <app-square class="card" [square]="square" *ngFor="let square of tictactoe.matrix" (click)="onSelection(square)"></app-square>
+    <!-- <div class="card" *ngFor="let square of tictactoe.matrix" (click)="onSelection(square)">
+        {{square.value}}
+    </div> -->
 </div>
 
-<button id="btn_new" class="btn btn-primary" *ngIf="game.isGameOver" (click)="resetGame()">Reset</button>
-<h1 class="text-center  text-grey-darker" *ngIf="game.winner"> {{ game.activePlayer }} WON </h1>
+<button id="btn_new" class="btn btn-primary" *ngIf="!isRunning" (click)="newGame()">New Game</button>

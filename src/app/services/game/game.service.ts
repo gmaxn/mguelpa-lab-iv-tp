@@ -50,6 +50,7 @@ export class GameService {
         uid: uid,
         username: username,
         points: points,
+        lastDatePlayed: new Date().toDateString()
       })
       .catch((error) => {
         console.error('Error adding document: ', error);

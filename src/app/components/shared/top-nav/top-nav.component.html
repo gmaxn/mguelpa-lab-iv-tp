@@ -3,11 +3,11 @@
     <i class="fas fa-bars"></i>
   </div>
 
-  <div id="btn_home" class="my_btn" routerLink="/home" data-toggle="tooltip" data-placement="bottom" title="Home">
+  <div id="btn_home" class="my_btn" routerLink="/home" (click)="onCloseSideNav()" data-toggle="tooltip" data-placement="bottom" title="Home">
     <i class="fas fa-home"></i>
   </div>
 
-  <div id="btn_about" class="my_btn" routerLink="/about-me" data-placement="bottom" title="About Me">
+  <div id="btn_about" class="my_btn" routerLink="/about-me" (click)="onCloseSideNav()" data-placement="bottom" title="About Me">
     <i class="fas fa-info-circle"></i>
   </div>
 

@@ -1,0 +1,251 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin
+    }
+
+    #wrapper {
+        border-radius: 5px;
+        margin: 10px;
+        padding: 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 90%;
+    }
+
+    #appointment-wrapper {
+        border: 1px solid rgb(206, 212, 218);
+        background-color: white;
+        border-radius: 5px;
+        display: inline-flex;
+        flex-direction: column;
+        padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 800px;
+    }
+
+    #appointment-header-wrapper {
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 5px;
+    }
+
+    #appointment-footer-wrapper {
+
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #appointment-footer-wrapper>div>button {
+        border: 1px solid rgb(206, 212, 218);
+    }
+
+    #appointment-week-control-wrapper {
+        border: 1px solid rgb(206, 212, 218);
+        border-radius: 5px;
+        display: inline-flex;
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    #appointment-table-wrapper {
+        border: 1px solid rgb(206, 212, 218);
+        border-radius: 5px;
+        margin-bottom: 5px;
+        height: 100%;
+        min-width: 700px;
+    }
+
+
+
+    /*****************************/
+
+    .table-wrapper {
+        overflow-y: scroll;
+        display: inline-flex;
+        border: 1px solid rgb(206, 212, 218);
+        border-radius: 5px;
+        flex-wrap: wrap;
+
+        margin-bottom: 5px;
+
+
+
+    }
+
+    table {
+        width: 100%;
+
+    }
+
+    tbody {
+        overflow-y: scroll;
+        height: 150px;
+
+    }
+
+
+    th {
+        background-color: white;
+        position: sticky;
+        top: 0;
+    }
+
+    td,
+    th {
+        padding: 10px;
+        text-align: center;
+    }
+
+    tr:hover {
+        background-color: rgba(169, 195, 218, 0.898);
+    }
+
+    .table-wrapper::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+
+    input[type="date"]:not(.has-value):before {
+        content: attr(placeholder);
+    }
+
+
+    input[type="date"]:not(.has-value)::-webkit-datetime-edit {
+        color: transparent;
+    }
+
+
+    #message-window {
+        border: 1px solid rgb(206, 212, 218);
+        border-radius: 5px;
+        background-color: rgb(233, 236, 239);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+
+    }
+
+    #form-window {
+        border: 1px solid rgb(206, 212, 218);
+        border-radius: 5px;
+        /* background-color: rgb(233, 236, 239); */
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+    }
+</style>
+
+<div id="appointment-wrapper">
+    <div id="form-window">
+        <form [formGroup]="userExperienceForm">
+            <label style="margin-bottom:25px;margin-top:25px; text-align:center; display: inline;">
+                <h2 class="mb-0">Experiencia de usuario</h2>
+            </label>
+            <label style="margin-bottom:25px;margin-top:25px; font-weight: bolder;">
+                <h4 class="mb-0">Datos del usuario: </h4>
+            </label>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" class="form-control" [ngClass]="{'is-invalid': userExperienceForm.controls['nombre'].errors && userExperienceForm.controls['nombre'].touched}" id="Nombre" placeholder="nombre" formControlName="nombre">
+                    <small class="invalid-feedback">Campo requerido, solo letras, hasta 15 caracteres, sin espacios.</small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Apellido">Apellido</label>
+                    <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': userExperienceForm.controls['apellido'].errors && userExperienceForm.controls['apellido'].touched}" id="Apellido" placeholder="apellido" formControlName="apellido">
+                    <small class="invalid-feedback">Campo requerido, solo letras, hasta 15 caracteres, sin espacios.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" [ngClass]="{'is-invalid': userExperienceForm.controls['email'].errors && userExperienceForm.controls['email'].touched}" id="Email" placeholder="email" formControlName="email">
+                <small class="invalid-feedback">Campo requerido, formato email (some@user.com)</small>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Apellido">Edad</label>
+                    <input type="number" class="form-control" [ngClass]="{'is-invalid': userExperienceForm.controls['edad'].errors && userExperienceForm.controls['edad'].touched}"  id="edad" placeholder="edad" formControlName="edad">
+                    <small class="invalid-feedback">Campo requerido, 18 a 99</small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Apellido">Teléfono</label>
+                    <input type="text" class="form-control" [ngClass]="{'is-invalid': userExperienceForm.controls['telefono'].errors && userExperienceForm.controls['telefono'].touched}"  id="telefono" placeholder="telefono" formControlName="telefono">
+                    <small class="invalid-feedback">Campo requerido, 10 digitos sin 0 y sin 15</small>
+                </div>
+            </div>
+            <label style="margin-bottom:25px;margin-top:25px; font-weight: bolder;">
+                <h4 class="mb-0">Encuesta: </h4>
+            </label>
+            <div class="form-row">
+                <legend class="col-form-label col-sm-4 pt-0">Experiancia de navegacion del sitio</legend>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineRadio1" value="option1" [ngClass]="{'is-invalid': userExperienceForm.controls['experienciaNavegacion'].errors && userExperienceForm.controls['experienciaNavegacion'].touched}" formControlName="experienciaNavegacion">
+                    <label class="form-check-label" for="inlineRadio1">Buena</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineRadio2" value="option2" [ngClass]="{'is-invalid': userExperienceForm.controls['experienciaNavegacion'].errors && userExperienceForm.controls['experienciaNavegacion'].touched}" formControlName="experienciaNavegacion">
+                    <label class="form-check-label" for="inlineRadio2">Media</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineRadio3" value="option3" [ngClass]="{'is-invalid': userExperienceForm.controls['experienciaNavegacion'].errors && userExperienceForm.controls['experienciaNavegacion'].touched}" formControlName="experienciaNavegacion">
+                    <label class="form-check-label" for="inlineRadio3">Mala</label>
+                </div>
+            </div>
+            <small class="col-form-label col-sm-4 pt-0" *ngIf="userExperienceForm.controls['experienciaNavegacion'].errors && userExperienceForm.controls['experienciaNavegacion'].touched" style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;">Debes seleccionar al menos uno.</small>
+            <div class="form-row" style="padding-top:25px;">
+                <legend class="col-form-label col-sm-6 pt-0">Recomendarias la aplicacion a un amigo?</legend>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="contanos por qué, no mas de 150 caracteres." [ngClass]="{'is-invalid': userExperienceForm.controls['comentarios'].errors && userExperienceForm.controls['comentarios'].touched}" formControlName="comentarios"></textarea>
+                <small class="invalid-feedback">Debes dejar una reseña de no mas de 150 caracteres.</small>
+            </div>
+            <div class="form-row" style="padding-top:25px;">
+                <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback" [ngClass]="{'is-invalid': userExperienceForm.controls['puntaje'].errors && userExperienceForm.controls['puntaje'].touched}" formControlName="puntaje" required>
+                  <option selected disabled hidden value="">Dejanos un puntaje</option>
+                  <option>1</option>
+                  <option>2</option>                  
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                <div id="validationServer04Feedback" class="invalid-feedback">
+                  Tenes que dejarnos un puntaje.
+                </div>
+              </div>
+            <div class="form-row" style="padding-top:25px;">
+                <legend class="col-form-label col-sm-4 pt-0">Aceptas nuetras politicas de uso de la informacion suministrada?</legend>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" [ngClass]="{'is-invalid': userExperienceForm.controls['politicas'].errors && userExperienceForm.controls['politicas'].touched}" formControlName="politicas">
+                    <label class="form-check-label" for="inlineCheckbox1">Acepto</label>
+                    <small class="invalid-feedback" style="padding-left: 25px;">Debes aceptar nuestros terminos de uso.</small>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 25px;" (click)="onSubmit()">Enviar Encuesta</button>
+        </form>
+    </div>
+</div>

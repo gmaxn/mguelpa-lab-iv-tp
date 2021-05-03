@@ -63,6 +63,7 @@ app-spinner {
 
 app-home,
 app-signin,
+app-survey,
 app-denied,
 app-not-found
 app-actor-new,
@@ -71,6 +72,8 @@ app-movie-manage,
 app-about-me,
 app-anagrama-game, 
 app-anagrama-records,
+app-rock-paper-scissor-records,
+app-tic-tack-toe-records,
 app-memo-game,
 app-memotest-records,
 app-tic-tac-toe-game,
@@ -78,6 +81,6 @@ app-tic-tac-toe-records {
   grid-column: 1 / span 2;
   grid-row: 2;
   height: 100%;
-  /* border: 1px solid orange; */
+  overflow: scroll;
 }
 

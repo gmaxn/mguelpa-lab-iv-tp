@@ -9,11 +9,13 @@ import { NotFoundComponent } from '../routes/not-found/not-found.component';
 import { SigninComponent } from '../routes/signin/signin.component';
 import { AdminGuardService } from '../services/user/admin-guard.service';
 import { UserGuardService } from '../services/user/user-guard.service';
+import { SurveyComponent } from '../routes/survey/survey.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'chat', component: ChatComponent, canActivate: [UserGuardService] },
+    { path: 'survey', component: SurveyComponent, canActivate: [UserGuardService] },
     { path: 'denied', component: DeniedComponent },
     { path: 'about-me', component: AboutMeComponent },
     { path: 'about-the-project', component: AboutProjectComponent, canActivate: [AdminGuardService] },

@@ -1,5 +1,4 @@
-import { Injectable } from "@angular/core";
-import { Game } from "./game";
+import { EventEmitter, Injectable } from "@angular/core";
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +7,18 @@ export class TicTacToe {
 
   public board: any = [];
   boardSize: number = 9;
+
   activePlayer: string = "X";
-  turnCount: 0;
+  isUserTurn = true;
+  turnCount: number = 0;
   isGameRunning: boolean = false;
   isGameOver: boolean = false;
   winner: boolean = false;
+
+  public callback: EventEmitter<any> = new EventEmitter<any>();
+
+
+
 
   constructor() {
     this.newGame()
@@ -44,31 +50,59 @@ export class TicTacToe {
   }
 
   changePlayerTurn(squareClicked) {
-    console.log(squareClicked);
 
-    this.updateBoard(squareClicked)
+
+    if(this.isUserTurn) {
+
+      this.startsUser(squareClicked);
+
+    }
+
+    if(!this.isUserTurn) {
+      this.startsMachine();
+    }
+
+
+
+  }
+
+  startsUser(squareClicked) {
+    this.updateBoard(squareClicked);
+
     if (!this.isGameOver) {
       this.activePlayer = this.activePlayer === "X" ? "O" : "X"
+      this.turnCount++;
+      this.isGameOver = this.isGameOver ? true : false;
+  
+      this.machineTurn();
     }
-    this.turnCount++;
-    this.isGameOver = this.isGameOver ? true : false;
 
-    this.machineTurn();
+
+
+  }
+
+  startsMachine() {
 
   }
 
   machineTurn() {
 
-    if(!this.isGameOver) {
-      let i = 5;
-      while(this.board[i].state !== null && (this.board.filter(s => s.state === null).length > 0)) {
-        i = Math.floor(Math.random() * 9);
+    if (!this.isGameOver) {
+
+      switch (this.turnCount) {
+        case 1:
+          this.random();
+          break;
+        case 2:
+          this.case2();
+          break;
+        case 3:
+          this.case3();
+          break;
+        case 4:
+          this.case4();
+          break;
       }
-  
-      this.board[i] = ({
-        id: i,
-        state: "O"
-      });
       if (this.isWinner) {
         this.winner = true;
         this.isGameRunning = false;
@@ -80,7 +114,340 @@ export class TicTacToe {
 
   }
 
-  getRandomNumber(){
+  random() {
+    let i =  Math.floor(Math.random() * 9);
+    if(this.board.filter(square => square.state === null).length > 0 && this.board[i].state !== null) {
+      this.random();
+    }
+    else {
+      this.board[i] = ({
+        id: i,
+        state: "O"
+      });
+    }
+  }
+
+
+  case2() {
+    let none = true;
+    if (this.board[0].state === "X" && this.board[4].state === "X" && this.board[8].state === null) {
+      this.board[8] = ({
+        id: 8,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "X" && this.board[2].state === "X" && this.board[1].state === null) {
+      this.board[1] = ({
+        id: 1,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "X" && this.board[6].state === "X" && this.board[3].state === null) {
+      this.board[3] = ({
+        id: 3,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[2].state === "X" && this.board[8].state === "X" && this.board[5].state === null) {
+      this.board[5] = ({
+        id: 5,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[2].state === "X" && this.board[6].state === "X" ||
+      this.board[0].state === "X" && this.board[8].state === "X" && this.board[4].state === null) {
+      this.board[4] = ({
+        id: 4,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "X" && this.board[3].state === "X" && this.board[6].state === null) {
+      this.board[6] = ({
+        id: 6,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "X" && this.board[1].state === "X" && this.board[1].state === null) {
+      this.board[1] = ({
+        id: 1,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[2].state === "X" && this.board[5].state === "X" && this.board[8].state === null) {
+      this.board[8] = ({
+        id: 8,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[1].state === "X" && this.board[2].state === "X" && this.board[0].state === null) {
+      this.board[0] = ({
+        id: 0,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[5].state === "X" && this.board[8].state === "X" && this.board[2].state === null) {
+      this.board[2] = ({
+        id: 2,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[7].state === "X" && this.board[8].state === "X" && this.board[6].state === null) {
+      this.board[6] = ({
+        id: 6,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[6].state === "X" && this.board[4].state === "X" && this.board[2].state === null) {
+      this.board[2] = ({
+        id: 2,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[2].state === "X" && this.board[4].state === "X" && this.board[6].state === null) {
+      this.board[6] = ({
+        id: 6,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "X" && this.board[4].state === "X" && this.board[8].state === null) {
+      this.board[8] = ({
+        id: 8,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[4].state === "X" && this.board[8].state === "X" && this.board[0].state === null) {
+      this.board[0] = ({
+        id: 0,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[4].state === "X" && this.board[7].state === "X" && this.board[4].state === null) {
+      this.board[1] = ({
+        id: 1,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[1].state === "X" && this.board[4].state === "X" && this.board[7].state === null) {
+      this.board[7] = ({
+        id: 7,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[3].state === "X" && this.board[4].state === "X" && this.board[5].state === null) {
+      this.board[5] = ({
+        id: 5,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[5].state === "X" && this.board[4].state === "X" && this.board[3].state === null) {
+      this.board[3] = ({
+        id: 3,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "X" && this.board[8].state === "X" ||
+        this.board[2].state === "X" && this.board[6].state === "X" && 
+        this.board[5] === null) {
+      this.board[5] = ({
+        id: 5,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if(none) {
+      this.random();
+    }
+  }
+
+  case3() { 
+    let none = true;
+    alert("case3");
+    if (this.board[0].state === "O" && this.board[2].state === "O" && this.board[1] === null){
+      this.board[1] = ({
+        id: 1,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "O" && this.board[6].state === "O" && this.board[3] === null){
+      this.board[3] = ({
+        id: 3,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[2].state === "O" && this.board[8].state === "O" && this.board[5] === null){
+      this.board[5] = ({
+        id: 5,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[2].state === "O" && this.board[6].state === "O" ||
+      this.board[0].state === "O" && this.board[8].state === "O" && this.board[4] === null){
+      this.board[4] = ({
+        id: 4,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "O" && this.board[3].state === "O" && this.board[6] === null){
+      this.board[6] = ({
+        id: 6,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "O" && this.board[1].state === "O" && this.board[1] === null){
+      this.board[1] = ({
+        id: 1,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[2].state === "O" && this.board[5].state === "O" && this.board[8] === null){
+      this.board[8] = ({
+        id: 8,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[1].state === "O" && this.board[2].state === "O" && this.board[0] === null){
+      this.board[0] = ({
+        id: 0,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[5].state === "O" && this.board[8].state === "O" && this.board[2] === null){
+      this.board[2] = ({
+        id: 2,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[7].state === "O" && this.board[8].state === "O" && this.board[6] === null){
+      this.board[6] = ({
+        id: 6,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[6].state === "O" && this.board[4].state === "O" && this.board[2] === null){
+      this.board[2] = ({
+        id: 2,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[2].state === "O" && this.board[4].state === "O" && this.board[6] === null){
+      this.board[6] = ({
+        id: 6,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[0].state === "O" && this.board[4].state === "O" && this.board[8] === null){
+      this.board[8] = ({
+        id: 8,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[4].state === "O" && this.board[8].state === "O" && this.board[0] === null){
+      this.board[0] = ({
+        id: 0,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[4].state === "O" && this.board[7].state === "O" && this.board[1] === null){
+      this.board[1] = ({
+        id: 1,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[1].state === "O" && this.board[4].state === "O" && this.board[7] === null){
+      this.board[7] = ({
+        id: 7,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if (this.board[3].state === "O" && this.board[4].state === "O" && this.board[5] === null){
+      this.board[7] = ({
+        id: 5,
+        state: "O"
+      });
+      none = false;
+    }
+
+    if(none) {
+      this.random();
+    }
+  }
+
+  case4() {
+    this.random();
+  }
+
+  getRandomNumber() {
 
   }
 
@@ -98,7 +465,7 @@ export class TicTacToe {
   }
 
   get isWinner(): boolean {
-    return this.checkDiag() || this.checkRows(this.board, "row") || this.checkRows(this.board, "col")  || this.checkAll(this.board) ? true : false;
+    return this.checkDiag() || this.checkRows(this.board, "row") || this.checkRows(this.board, "col") || this.checkAll(this.board) ? true : false;
   }
 
   checkRows(board, mode): boolean {
@@ -141,7 +508,7 @@ export class TicTacToe {
     return false
   }
 
-  checkAll(board:any[]) {
+  checkAll(board: any[]) {
     return this.gameOver && !(board.filter(s => s.state === null).length > 0);
   }
 }

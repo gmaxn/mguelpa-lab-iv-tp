@@ -1,28 +1,49 @@
-<div id="game_background">
-    <div id="component-wrapper">
+<style>
+    h2 {
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid rgb(162, 162, 162);
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 24px;
+        font-family: "Permanent Marker", cursive;
+        color: rgb(229, 229, 16);
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+        background-color: rgb(62, 45, 95);
+    }
+</style>
 
-        <div id="person-grid-wrapper" class="show-margins">
-    
-            <div class="layout" id="table-wrapper">
-    
-                <table *ngIf='records && records.length'>
-    
-                    <thead>
-                        <th>User</th>
-                        <th>Points</th>
-                    </thead>
-    
-                    <tbody>
-                        <tr *ngFor='let record of records'>
-                            <td>{{ record.username }}</td>
-                            <td>{{ record.points }}</td>
-                        </tr>
-                    </tbody>
-    
-                </table>
-    
-            </div>
-    
+<div id="game_background">
+    <h2>Memotest - Records</h2>
+
+    <div id="person-grid-wrapper" class="show-margins">
+
+        <div class="layout" id="table-wrapper">
+
+            <table *ngIf='records && records.length'>
+
+                <thead>
+                    <th>User</th>
+                    <th>Points</th>
+                    <th>Last game</th>
+
+                </thead>
+
+                <tbody>
+                    
+                    <tr *ngFor='let record of records'>
+                        <td>{{ record.username }}</td>
+                        <td>{{ record.points }}</td>
+                        <td>{{ record.lastDatePlayed }}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
         </div>
+
     </div>
 </div>

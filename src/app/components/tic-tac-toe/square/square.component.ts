@@ -5,7 +5,7 @@ import { TicTacToe } from 'src/app/lib/games/tic-tac-toe';
   selector: 'app-square',
   template: `
     <div class="game-square rounded-lg border bg-teal-lightest shadow-md " (click)="changePlayer()" [ngClass]="{noClick: gameService.winner} ">
-      <p class="text-grey-darker"> {{ square.state}} </p>
+      <p class="text-grey-darker"> {{ square.value}} </p>
     </div>
    `,
   styles: [`

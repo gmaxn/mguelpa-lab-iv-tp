@@ -156,6 +156,13 @@ export class SigninFormComponent implements OnInit {
     return !hasErrors;
   }
 
+  onAutoSignup() {
+    this.form.get('username')?.patchValue(`test_${Date.now()}@user.com`);
+    this.form.get('passwordGroup.password')?.patchValue("123456q!");
+    this.form.get('passwordGroup.confirm')?.patchValue("123456q!");
+  }
+
+
   onAutoComplete() {
     this.form.get('username')?.patchValue("test@user.com");
     this.form.get('passwordGroup.password')?.patchValue("123456q!");

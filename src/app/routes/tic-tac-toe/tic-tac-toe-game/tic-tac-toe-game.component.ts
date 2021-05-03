@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { messageSlideAnimation, promptSlideAnimation } from 'src/app/modules/app-animations.module';
 
 @Component({
   selector: 'app-tic-tac-toe-game',
+  animations: [
+    promptSlideAnimation,
+    messageSlideAnimation
+  ],
   templateUrl: './tic-tac-toe-game.component.html',
   styleUrls: ['./tic-tac-toe-game.component.css']
 })

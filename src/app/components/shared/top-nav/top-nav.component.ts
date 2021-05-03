@@ -44,6 +44,11 @@ export class TopNavComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
+  onCloseSideNav() {
+    this.isOpen = false;
+    this.enableSideNav.emit(false);
+  }
+
   onSign() {
     this.enableSideNav.emit(false);
     if (!this.auth.isLogged()) {
